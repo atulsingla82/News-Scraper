@@ -18,7 +18,9 @@ mongoose.Promise = Promise;
 
 // Initialize Express
 const app = express();
+
 var PORT = process.env.PORT || 3000;
+
 
 // Use morgan & body parser 
 app.use(logger("dev"));
@@ -30,11 +32,12 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname + "/public"));
 
 
-const db = mongoose.connection;
+
 // Database configuration with mongoose
 
 //---------- Define local MongoDB URI -------------
  mongoose.connect("mongodb://localhost/newsdb");
+
 //-------------------------------------------------
 
 if (process.env.MONGODB_URI) {
@@ -43,12 +46,12 @@ mongoose.connect(process.env.MONGODB_URI)
 
 } else {
 
-	mongoose.connect("mongodb://localhost/newsdb"); 
+  mongoose.connect("mongodb://localhost/newsdb"); 
 }
 
 //-------------------------------------------------
 
-
+const db = mongoose.connection;
 // Show any mongoose errors
 
 db.on("error", (error) => {
