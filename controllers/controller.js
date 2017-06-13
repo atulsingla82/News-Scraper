@@ -105,7 +105,7 @@ router.get('/', (req, res) => {
 
 
 // This will get the articles we scraped from the mongoDB in JSON
-router.get('/articles-json', function(req, res) {
+router.get('/articles-json', (req, res) => {
     Article.find({}, (err, doc) => {
         if (err) {
             console.log(err);
@@ -118,7 +118,7 @@ router.get('/articles-json', function(req, res) {
 
 
 
-router.get("/savedArticles/:id", function(req, res) {
+router.get("/savedArticles/:id", (req, res) => {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
   Article.findOne({ "_id": req.params.id })
   // ..and populate all of the notes associated with it
@@ -136,37 +136,33 @@ router.get("/savedArticles/:id", function(req, res) {
   });
 });
 
-// Create a new comment
-router.post('/note/:id', function(req, res) {
-  var user = req.body.name;
-  var content = req.body.comment;
-  var articleId = req.params.id;
+// Create a new note or replace an existing note
+router.post("/savedArticles/:id",(req, res) =>{
+  // Create a new note and pass the req.body to the entry
+  let newNote = new Note(req.body);
 
-  //submitted form
-  var noteObj = {
-    name: user,
-    body: content
-  };
- 
-  //using the Comment model, create a new comment
-  var newNote = new Note(noteObj);
-
-  newNote.save(function(err, doc) {
-      if (err) {
+  // And save the new note the db
+  newNote.save(function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Otherwise
+    else {
+      // Use the article id to find and update it's note
+      Article.findOneAndUpdate({ "_id": req.params.id }, { "note": doc._id })
+      // Execute the above query
+      .exec(function(err, doc) {
+        // Log any errors
+        if (err) {
           console.log(err);
-      } else {
-          console.log(doc._id)
-          console.log(articleId)
-          Article.findOneAndUpdate({ "_id": req.params.id }, {$push: {'note':doc._id}}, {new: true})
-            //execute everything
-            .exec(function(err, doc) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    res.redirect('/savedArticles/' + articleId);
-                }
-            });
         }
+        else {
+          // Or send the document to the browser
+          res.render("saved",doc);
+        }
+      });
+    }
   });
 });
 
