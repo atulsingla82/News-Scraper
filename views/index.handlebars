@@ -1,0 +1,53 @@
+<nav>
+       
+            
+            <ul class="left hide-on-med-and-down">
+                <li><a href="/saved">Saved Articles</a></li>
+                <li>  <a class="waves-effect waves-light btn" href="#modal1" id="scrape">Scrape new articles</a></li>
+            </ul>
+       
+
+    </nav>
+
+<div class="banner">
+  
+   
+    
+    <h1 id="main-text-header">Mongo Scraper </h1>
+
+    <div class="sub-text">
+        <h4 id="sub-font">NY Times Edition</h4>
+    </div>
+
+    
+</div>
+  
+        <div class="row">
+  <div class="col s2"></div>
+  <div class ="col s8 left-align">
+  
+    {{#each article}}
+      <div class="card-panel">
+        <h4>{{this.title}}</h4>
+        <a href=""> {{this.link}}</a>
+        <br>
+        <br>
+        {{!-- goes to saved.handlebars --}}
+        <a href = "/savedArticles/{{this._id}}" class="waves-effect waves-light btn grey lighten-1" type="submit" >Save <i class="material-icons right">send</i></a>
+
+      </div>
+    {{/each}}
+  </div>
+
+</div>
+  
+
+    
+
+
+
+ 
+    
+
+   
+

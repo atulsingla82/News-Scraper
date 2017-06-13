@@ -1,0 +1,31 @@
+{
+  "name": "News-Scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atulsingla82/News-Scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atulsingla82/News-Scraper/issues"
+  },
+  "homepage": "https://github.com/atulsingla82/News-Scraper#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.10",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.10.5",
+    "morgan": "^1.8.2",
+    "request": "^2.81.0"
+  }
+}

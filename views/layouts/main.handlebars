@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    {{!-- Materialize Icons --}}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    {{!-- Google Font --}}
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <!-- tab icon -->
+
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    
+    <title>News Scraper</title>
+  </head>
+  <body>
+
+
+
+    
+   
+    
+     <main>
+   
+        {{{ body }}}
+    
+    </main>
+    
+
+   <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4> Scraping Complete</h4>
+      
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"> Close </a>
+    </div>
+  </div>
+    <!-- Modal Structure -->
+    
+    
+
+    
+   
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+       $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+
+
+    </script>
+  </body>
+<html>
+
+
+
