@@ -18,6 +18,7 @@ mongoose.Promise = Promise;
 
 // Initialize Express
 const app = express();
+var PORT = process.env.PORT || 3000;
 
 // Use morgan & body parser 
 app.use(logger("dev"));
@@ -36,14 +37,14 @@ const db = mongoose.connection;
  mongoose.connect("mongodb://localhost/newsdb");
 //-------------------------------------------------
 
-// if (process.env.MONGODB_URI) {
+if (process.env.MONGODB_URI) {
 
-// mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI)
 
-// } else {
+} else {
 
-// 	mongoose.connect("mongodb://localhost/newsdb"); 
-// }
+	mongoose.connect("mongodb://localhost/newsdb"); 
+}
 
 //-------------------------------------------------
 
@@ -81,5 +82,5 @@ app.use("/", routes);
 
 // Listen on port 3000
 app.listen(3000, function() {
-    console.log("App running on port 3000!");
+    console.log("App running on port!" + PORT);
 });
