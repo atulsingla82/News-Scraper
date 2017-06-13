@@ -25,10 +25,28 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-const db = mongoose.connection;
+// Make public a static dir
+app.use(express.static(__dirname + "/public"));
 
+
+const db = mongoose.connection;
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/newsdb");
+
+//---------- Define local MongoDB URI -------------
+ mongoose.connect("mongodb://localhost/newsdb");
+//-------------------------------------------------
+
+// if (process.env.MONGODB_URI) {
+
+// mongoose.connect(process.env.MONGODB_URI)
+
+// } else {
+
+// 	mongoose.connect("mongodb://localhost/newsdb"); 
+// }
+
+//-------------------------------------------------
+
 
 // Show any mongoose errors
 
@@ -53,8 +71,7 @@ app.set("view engine", "handlebars");
 const routes = require("./controllers/controller.js");
 app.use("/", routes);
 
-// Make public a static dir
-app.use(express.static(__dirname + "/public"));
+
 
 
 
