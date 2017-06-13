@@ -41,14 +41,14 @@ mongoose.connect("mongodb://heroku_7n3425x0:nnpotvnp8u2c9ufdip6dekh5jc@ds123722.
 
 //-------------------------------------------------
 
-// if (process.env.MONGODB_URI) {
+if (process.env.MONGODB_URI) {
 
-// mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI)
 
-// } else {
+} else {
 
-//   mongoose.connect("mongodb://localhost/newsdb"); 
-// }
+  mongoose.connect("mongodb://localhost/newsdb"); 
+}
 
 //-------------------------------------------------
 
