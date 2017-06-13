@@ -14,7 +14,7 @@ const Article = require("../models/Article.js");
 
 // // Main route 
 // router.get("/", (req, res) => {
-//     res.render("articles");
+//     res.render("index");
 // });
 
 
