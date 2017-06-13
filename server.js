@@ -40,7 +40,7 @@ mongoose.connect("mongodb://localhost/newsdb");
 
 //-------------------------------------------------
 
-if (process.env.MONGODB_URI) {
+if (process.env.MONGOLAB_URI) {
 
 mongoose.connect(process.env.MONGODB_URI)
 
