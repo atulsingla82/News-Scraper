@@ -23,8 +23,9 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.10",
+    "mongodb-uri": "^0.9.7",
     "mongojs": "^2.4.0",
-    "mongoose": "^4.10.5",
+    "mongoose": "^4.10.6",
     "morgan": "^1.8.2",
     "request": "^2.81.0"
   }

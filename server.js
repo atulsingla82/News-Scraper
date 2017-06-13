@@ -6,8 +6,8 @@ const express = require("express");
 
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const mongoose = require("mongoose");
 
+var mongoose = require('mongoose');
 
 
 //==============================================
@@ -36,7 +36,7 @@ app.use(express.static(__dirname + "/public"));
 // Database configuration with mongoose
 
 //---------- Define local MongoDB URI -------------
-mongoose.connect("mongodb://localhost/newsdb");
+ mongoose.connect("mongodb://localhost/newsdb");
 // mongoose.connect("mongodb://heroku_7n3425x0:nnpotvnp8u2c9ufdip6dekh5jc@ds123722.mlab.com:23722/heroku_7n3425x0")
 
 //-------------------------------------------------
